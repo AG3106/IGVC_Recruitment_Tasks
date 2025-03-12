@@ -47,11 +47,6 @@ while q:  # while q is non-empty
             dir_s = dirn
             n = nt  #saving id of move
             break
-        elif speed == 0:
-            print('Minimum Moves to complete Clockwise Loop:', t)
-            dir_s = dirn
-            n = nt  # saving id of move
-            break
 
     t += 1
 
@@ -74,7 +69,7 @@ while q:  # while q is non-empty
                     # checks if current state is in memory, i.e, already visited state
                     if state not in m:
                         n += 1
-                        if (k2 != 9 and k2 != 5) or k3 != 9 :  #if i > 3 then the bot has definitely moved
+                        if (k1 != 9 and k1 != 5) or k3 != 9 :  #if True then the bot has definitely moved
                             dt = 1
                         # pathgrid[env.pos[0], env.pos[1]] = t
                         q.append((env.pos.copy(), env.speed, env.direction.copy(), n, d+ dt, env.theta, t, dirn))  # adds new node to q

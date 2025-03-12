@@ -73,7 +73,7 @@ class Env:
         theta = cp/(mod_v1*mod_v2)
         self.theta += theta
 
-        if theta < 0: # discarding move if bot is moving anticlockwise
+        if self.theta < 0: # discarding move if bot is moving anticlockwise
             return False
         if keys == (9,9,9) and self.speed == 0: # discard idle move
             return False
