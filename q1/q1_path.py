@@ -56,15 +56,14 @@ while q:  # while q is non-empty
     t += 1
 
     g[nt] = []
-    for k1 in (9, 1, 2, 3, 4): # choose to turn
-        if speed > 0 and k1 != 9: # cannot turn if speed is nonzero
-            continue
-        for k2 in (5, 6, 9): # choose speed change
-            for k3 in (7, 8, 9):  # choose perpendicular movement
+    for k1 in (9, 5, 6): # choose speed change
+        for k2 in (9, 1, 2, 3, 4): # choose to turn
+            if speed > 0 and k2 != 9:
+                continue
+            for k3 in (7, 8, 9):  # choose lateral movement
                 dt =0
-                if k1 != 9:
-                    k2 = 9
-                    k3 = 9
+                # if k2 != 9: # in case lateral movement is not allowed while turning
+                #     k3 = 9
                 # Create copies to avoid modifying the environment state directly
                 pos_copy, speed_copy, direction_copy = pos.copy(), speed, direction.copy()
                 env.pos, env.speed, env.direction = pos_copy, speed_copy, direction_copy
